@@ -98,7 +98,7 @@ The streamlined scope and focused requirements enabled complete delivery within 
 ## Copyright & License
 
 **Proprietary Software**  
-© 2025 Schanke Sync Freelance Developers. All rights reserved.
+© 2026 Schanke Sync Freelance Developers. All rights reserved.
 
 Developed for John Vorster Hoërskool under commercial license. Unauthorized reproduction, distribution, or modification is prohibited without express written consent.
 

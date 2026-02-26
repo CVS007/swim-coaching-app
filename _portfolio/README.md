@@ -71,7 +71,7 @@
 
 ## Copyright
 
-© 2025 Schanke Sync Freelance Developers. All Rights Reserved.
+© 2026 Schanke Sync Freelance Developers. All Rights Reserved.
 
 ---
 
