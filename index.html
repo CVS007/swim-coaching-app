@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#1565C0">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="description" content="Swim coaching timer and performance tracker — John Vorster Hoërskool">
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="download.png">
+  <link rel="apple-touch-icon" href="download.png">
+  <link rel="stylesheet" href="app.css">
+  <title>SwimTrack Pro — John Vorster Hoërskool</title>
+</head>
+<body>
+
+  <!-- ── App Header ── -->
+  <header class="app-header">
+    <img src="download.png" alt="John Vorster Hoërskool Crest">
+    <h1>SwimTrack Pro</h1>
+    <button class="header-settings-btn" data-tab="settings" title="Settings">⚙</button>
+  </header>
+
+  <!-- ── Tab Navigation ── -->
+  <nav class="tab-nav" role="navigation" aria-label="App sections">
+    <button data-tab="lap" aria-label="Lap Timer">
+      <span class="tab-icon">⏱</span>
+      <span>Lap Timer</span>
+    </button>
+    <button data-tab="jump" aria-label="Jump Start Timer">
+      <span class="tab-icon">⚡</span>
+      <span>Jump Start</span>
+    </button>
+    <button data-tab="swimmers" aria-label="Swimmers">
+      <span class="tab-icon">👤</span>
+      <span>Swimmers</span>
+    </button>
+    <button data-tab="leaderboard" aria-label="Leaderboards">
+      <span class="tab-icon">🏆</span>
+      <span>Leaders</span>
+    </button>
+    <button data-tab="history" aria-label="History">
+      <span class="tab-icon">📋</span>
+      <span>History</span>
+    </button>
+  </nav>
+
+  <!-- ── Main Content ── -->
+  <main class="app-main">
+
+    <!-- ═══════════════════════════════════════
+         SECTION 1 — Lap Timer
+         ═══════════════════════════════════════ -->
+    <section id="section-lap" class="tab-section" data-tab="lap">
+      <h2>⏱ Lap Timer</h2>
+
+      <!-- Swimmer select -->
+      <div class="form-group">
+        <label for="lap-swimmer-select">Swimmer</label>
+        <select id="lap-swimmer-select">
+          <option value="">— Select swimmer —</option>
+        </select>
+      </div>
+
+      <!-- Quick add swimmer -->
+      <details style="margin-bottom:0.75rem;">
+        <summary style="cursor:pointer;font-size:0.875rem;color:var(--primary);font-weight:600;padding:0.3rem 0;">
+          + Quick add swimmer
+        </summary>
+        <div class="card" style="margin-top:0.5rem;">
+          <div class="inline-form">
+            <div class="form-group">
+              <label for="lap-new-name">Name</label>
+              <input type="text" id="lap-new-name" placeholder="Swimmer name" autocomplete="off">
+            </div>
+            <div class="form-group">
+              <label for="lap-new-stroke">Stroke</label>
+              <select id="lap-new-stroke">
+                <option value="Free">Free</option>
+                <option value="Back">Back</option>
+                <option value="Breast">Breast</option>
+                <option value="Fly">Fly</option>
+              </select>
+            </div>
+            <button id="btn-lap-quick-add" class="btn btn-secondary btn-sm" style="align-self:flex-end">Add</button>
+          </div>
+        </div>
+      </details>
+
+      <!-- Timer display -->
+      <div id="lap-timer-display" class="timer-display">00:00.00</div>
+      <div id="lap-current-display" class="lap-current">Lap 0</div>
+
+      <!-- Timer controls -->
+      <div class="btn-group">
+        <button id="btn-lap-start" class="btn btn-success">▶ Start</button>
+        <button id="btn-lap-lap"   class="btn btn-primary" disabled>⊕ Lap</button>
+        <button id="btn-lap-stop"  class="btn btn-warning" disabled>⏸ Stop</button>
+        <button id="btn-lap-reset" class="btn btn-secondary">↺ Reset</button>
+      </div>
+
+      <!-- Lap table -->
+      <div class="lap-table-wrapper">
+        <table id="lap-list-table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Split</th>
+              <th>Cumulative</th>
+            </tr>
+          </thead>
+          <tbody id="lap-list-body"></tbody>
+        </table>
+      </div>
+
+      <div class="btn-group" style="margin-top:0.75rem;">
+        <button id="btn-lap-save" class="btn btn-primary">💾 Save Session</button>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         SECTION 2 — Jump / Reaction Timer
+         ═══════════════════════════════════════ -->
+    <section id="section-jump" class="tab-section" data-tab="jump">
+      <h2>⚡ Jump Start Timer</h2>
+
+      <div class="form-group">
+        <label for="jump-swimmer-select">Swimmer</label>
+        <select id="jump-swimmer-select">
+          <option value="">— Select swimmer —</option>
+        </select>
+      </div>
+
+      <div id="jump-phase-display" class="jump-phase">Tap ARM to begin</div>
+
+      <div id="jump-reaction-display" class="jump-reaction"></div>
+
+      <div id="jump-result-badge" class="result-badge"></div>
+
+      <div class="btn-group">
+        <button id="btn-jump-arm"  class="btn btn-primary">ARM</button>
+        <button id="btn-jump-save" class="btn btn-success">💾 Save &amp; Reset</button>
+      </div>
+
+      <h3>Recent jumps (last 5)</h3>
+      <ul id="jump-recent-list" style="list-style:none;padding:0;margin:0;"></ul>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         SECTION 3 — Swimmer Management
+         ═══════════════════════════════════════ -->
+    <section id="section-swimmers" class="tab-section" data-tab="swimmers">
+      <h2>👤 Swimmers</h2>
+
+      <div class="card">
+        <h3 style="margin-top:0;">Add Swimmer</h3>
+        <form id="add-swimmer-form">
+          <div class="inline-form">
+            <div class="form-group">
+              <label for="swimmer-name">Name</label>
+              <input type="text" id="swimmer-name" placeholder="Full name" autocomplete="off" required>
+            </div>
+            <div class="form-group">
+              <label for="swimmer-stroke">Stroke</label>
+              <select id="swimmer-stroke">
+                <option value="Free">Free</option>
+                <option value="Back">Back</option>
+                <option value="Breast">Breast</option>
+                <option value="Fly">Fly</option>
+              </select>
+            </div>
+            <button type="submit" class="btn btn-primary btn-sm" style="align-self:flex-end;">+ Add</button>
+          </div>
+        </form>
+      </div>
+
+      <div id="swimmer-list"></div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         SECTION 4 — Leaderboards
+         ═══════════════════════════════════════ -->
+    <section id="section-leaderboard" class="tab-section" data-tab="leaderboard">
+      <h2>🏆 Leaderboards</h2>
+
+      <div class="leaderboard-tabs">
+        <button class="leaderboard-tab active" data-stroke="Free">Free</button>
+        <button class="leaderboard-tab" data-stroke="Back">Back</button>
+        <button class="leaderboard-tab" data-stroke="Breast">Breast</button>
+        <button class="leaderboard-tab" data-stroke="Fly">Fly</button>
+        <button class="leaderboard-tab" data-stroke="Jump">Jump Start</button>
+      </div>
+
+      <div class="leaderboard-wrapper">
+        <table id="leaderboard-table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Swimmer</th>
+              <th>Best Time</th>
+            </tr>
+          </thead>
+          <tbody id="leaderboard-body"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         SECTION 5 — History
+         ═══════════════════════════════════════ -->
+    <section id="section-history" class="tab-section" data-tab="history">
+      <h2>📋 History</h2>
+
+      <div class="history-filter">
+        <div class="form-group">
+          <label for="history-type-filter">Type</label>
+          <select id="history-type-filter">
+            <option value="All">All</option>
+            <option value="Laps">Laps only</option>
+            <option value="Jumps">Jumps only</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="history-swimmer-filter">Swimmer</label>
+          <select id="history-swimmer-filter">
+            <option value="">All swimmers</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="export-btns">
+        <button id="btn-export-laps"  class="btn btn-secondary btn-sm">⬇ Laps CSV</button>
+        <button id="btn-export-jumps" class="btn btn-secondary btn-sm">⬇ Jumps CSV</button>
+        <button id="btn-export-all"   class="btn btn-secondary btn-sm">⬇ All CSV</button>
+      </div>
+
+      <div id="history-list"></div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         SECTION 6 — Settings
+         ═══════════════════════════════════════ -->
+    <section id="section-settings" class="tab-section" data-tab="settings">
+      <h2>⚙ Settings</h2>
+
+      <div class="card settings-card">
+        <img src="download.png" alt="JV Hoërskool">
+        <div>
+          <strong>SwimTrack Pro</strong>
+          <span class="version-tag">v1.0.0-demo</span>
+        </div>
+        <p style="color:var(--text-muted);font-size:0.875rem;margin:0.5rem 0 1rem;">
+          Swim coaching timer and performance tracker<br>
+          John Vorster Hoërskool
+        </p>
+        <!-- PayFast Phase 2 placeholder -->
+        <button class="btn btn-secondary" disabled style="width:100%;">
+          💳 Subscribe — Coming Soon
+        </button>
+      </div>
+
+      <div class="danger-zone">
+        <h3>⚠ Data Management</h3>
+        <p style="font-size:0.875rem;color:var(--text-muted);margin-bottom:0.75rem;">
+          Permanently delete all swimmers, lap records and jump records from this device.
+        </p>
+        <button id="btn-clear-data" class="btn btn-danger">🗑 Clear All Data</button>
+      </div>
+
+      <div class="card" style="margin-top:1rem;">
+        <p style="font-size:0.8rem;color:var(--text-muted);margin:0;">
+          <strong>Offline capable:</strong> Install this app on your home screen for use without internet.
+          To install on Android, tap the browser menu → "Add to Home Screen".
+          On iOS/Safari, tap Share → "Add to Home Screen".
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ── Static Footer ── -->
+  <footer class="app-footer">
+    <p>SwimTrack Pro &middot; John Vorster Hoërskool</p>
+    <p>Developed by Christo van Schanke t/a Schanke Sync Freelance Developers</p>
+    <p>&copy; 2025 All Rights Reserved &middot; Licensed Software &middot; Unauthorised copying or reproduction prohibited</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+date,session,phase,task,duration_min,model,notes
+2026-02-26,1,Planning,Architecture & data structures,10,Claude,Define file structure, data contracts, integration points
+2026-02-26,1,Generation,app.css (Gemini),1,Gemini,53s wall time — mobile-first CSS with CSS vars
+2026-02-26,1,Generation,index.html (Gemini),1,Gemini,53s wall time — 6-section SPA shell
+2026-02-26,1,Generation,app.js (Gemini),2,Gemini,73s wall time — 600+ line JS logic
+2026-02-26,1,Generation,manifest.json (Qwen),1,Qwen,33s wall time
+2026-02-26,1,Generation,service-worker.js (Qwen),1,Qwen,36s wall time
+2026-02-26,1,Generation,_portfolio/README.md (Qwen),1,Qwen,36s wall time
+2026-02-26,1,Generation,_portfolio/case_study.md (Qwen),1,Qwen,64s wall time
+2026-02-26,1,Integration,Wire all files + fix mismatches,25,Claude,ID standardisation; CSS full rewrite for quality; JS full rewrite for correctness
+2026-02-26,1,Integration,Dev evidence files,10,Claude,session_log, agent_usage, time_tracking, bugs_found, cost_analysis
+2026-02-26,1,Git,Init + commit + tag,5,Claude,git init; first commit; v1.0.0-demo tag
