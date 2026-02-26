@@ -44,6 +44,21 @@
 
 ---
 
+## Lighthouse Audit — Live Production
+
+Audited against **https://cvs007.github.io/swim-coaching-app/**
+
+| Category | Score |
+|----------|-------|
+| ⚡ Performance | **97 / 100** |
+| ♿ Accessibility | **100 / 100** |
+| ✅ Best Practices | **100 / 100** |
+| 🔍 SEO | **100 / 100** |
+
+Three perfect 100s on a zero-dependency, framework-free PWA served from GitHub Pages.
+
+---
+
 ## PWA Capabilities
 
 - **Installable:** Add to home screen on iOS and Android devices
