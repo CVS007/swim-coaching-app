@@ -58,7 +58,24 @@
   "totals": {
     "gemini_credits": 3,
     "qwen_credits": 4,
-    "claude_credits_overhead": 2,
-    "claude_credits_saved_estimate": 13
+    "claude_session_used_percent": 47,
+    "orchestrator_actual_cost_usd": 0.004,
+    "orchestrator_if_all_claude_usd": 0.775,
+    "orchestrator_saved_usd": 0.771,
+    "orchestrator_saved_percent": 99,
+    "tokens_input": 4751,
+    "tokens_output": 9384,
+    "tokens_total": 14135
+  },
+  "delivery": {
+    "github_repo": "https://github.com/CVS007/swim-coaching-app",
+    "live_url": "https://cvs007.github.io/swim-coaching-app/",
+    "pwa_installed_on_device": true,
+    "offline_mode_verified": true,
+    "lighthouse_performance": 97,
+    "lighthouse_accessibility": 100,
+    "lighthouse_best_practices": 100,
+    "lighthouse_seo": 100,
+    "delivered_date": "2026-02-26"
   }
 }

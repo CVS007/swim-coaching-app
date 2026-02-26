@@ -44,4 +44,38 @@ Single sprint delivery of a fully functional offline-capable Progressive Web App
 - [x] Gate 3: manifest.json linked, service-worker.js registered
 - [x] Gate 4: All 6 sections render; timers, CSV, leaderboards implemented
 - [x] Gate 5: Footer static (margin-top: auto on flex body)
-- [ ] Gate 6: Lighthouse audit — run after `python3 -m http.server 8080` on localhost
+- [x] Gate 6: Lighthouse audit completed — 97/100/100/100
+
+---
+
+## Post-Build Activities
+
+### Lighthouse Audits
+- Localhost audit: Performance 98, Accessibility 96, Best Practices 96, SEO 100
+- GitHub Pages audit v1: Performance 96 — identified 8 issues
+- GitHub Pages audit v2/v3: CDN cache lag — fixes not yet serving
+- GitHub Pages final: **Performance 97, Accessibility 100, Best Practices 100, SEO 100**
+
+### Fixes Applied After Initial Audit
+1. SW registration path: `/service-worker.js` → `./service-worker.js`
+2. SW precache paths: absolute → relative (`./`)
+3. manifest.json `start_url`: `/` → `./`
+4. Tab nav font-size: 0.65rem → 0.75rem (base + 480px media query)
+5. Footer font-size: 0.72rem → 0.75rem
+6. Footer color: `#aaa` → `#555555` (7.4:1 contrast on #F5F7FA)
+7. btn-success background: `#4CAF50` → `#2E7D32` (WCAG AA contrast)
+8. Leaderboard aria-label: `"Leaderboards"` → `"Leaderboard"` (label match)
+
+### Deployment & Delivery
+- Repo made public with proprietary LICENSE file
+- GitHub Pages enabled on main branch
+- PWA installed on client device — verified
+- Offline mode tested and confirmed working on device
+- Client notified with install link
+- Portfolio docs (README.md + case_study.md) updated with Lighthouse scores
+
+### Orchestrator Performance
+- 7 delegations: 3 Gemini + 4 Qwen
+- Actual cost: $0.004
+- Saved vs all-Claude: $0.771 (99%)
+- Claude session consumed: ~47%

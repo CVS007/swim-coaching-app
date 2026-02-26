@@ -39,3 +39,35 @@ Multi-agent orchestration: Claude Code (orchestrator) + Gemini + Qwen (delegates
 - Use Gemini for complex JS/CSS (good starting point, needs integration review)
 - Use Qwen for config files (manifest, gitignore, simple JSON — near-perfect output)
 - Budget 30-40% of total time for Phase 3 integration when using multiple delegates
+
+---
+
+## Actual Orchestrator Stats (verified — LLM Orchestrator MCP)
+
+| Metric | Value |
+|--------|-------|
+| Total delegations | 7 |
+| Qwen tasks | 4 (FREE) |
+| Gemini tasks | 3 |
+| Actual delegation cost | $0.004 |
+| If all Claude Sonnet | $0.775 |
+| **Total saved** | **$0.771 (99%)** |
+| Tokens in | 4,751 |
+| Tokens out | 9,384 |
+| Claude session used | 47% |
+
+## Lighthouse — Final Verified Scores (live GitHub Pages)
+| Category | Score |
+|----------|-------|
+| Performance | 97/100 |
+| Accessibility | 100/100 |
+| Best Practices | 100/100 |
+| SEO | 100/100 |
+
+## Delivery Verification
+- [x] GitHub Pages live: https://cvs007.github.io/swim-coaching-app/
+- [x] PWA installed on client device
+- [x] Offline mode tested and verified on device
+- [x] Client notified with install link
+- [x] Portfolio docs updated with Lighthouse scores
+- [x] All evidence committed to GitHub
