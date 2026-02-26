@@ -71,6 +71,24 @@ The application was built with maintainability and longevity as primary concerns
 
 ---
 
+## Lighthouse Audit Results
+
+Independent quality audit conducted via Google Lighthouse against the live production URL:
+**https://cvs007.github.io/swim-coaching-app/**
+
+| Category | Score | Rating |
+|----------|-------|--------|
+| ⚡ Performance | **97 / 100** | Excellent |
+| ♿ Accessibility | **100 / 100** | Perfect |
+| ✅ Best Practices | **100 / 100** | Perfect |
+| 🔍 SEO | **100 / 100** | Perfect |
+
+Three perfect 100s and a 97 Performance score achieved on a pure vanilla JS application with zero external dependencies, no build tools, and no CDN — served directly from GitHub Pages.
+
+Full audit report available in `_dev_evidence/lighthouse_report/lighthouse_final.report.html`.
+
+---
+
 ## Technology Stack
 
 | Component | Technology |
