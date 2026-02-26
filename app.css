@@ -140,7 +140,7 @@ p { margin: 0 0 0.5rem; }
   justify-content: center;
   gap: 2px;
   color: var(--text-muted);
-  font-size: 0.65rem;
+  font-size: 0.75rem;
   font-family: var(--font);
   cursor: pointer;
   min-height: 44px;
@@ -199,8 +199,8 @@ p { margin: 0 0 0.5rem; }
 .btn-danger { background: var(--danger); color: white; }
 .btn-danger:hover:not(:disabled) { background: #c62828; }
 
-.btn-success { background: var(--success); color: white; }
-.btn-success:hover:not(:disabled) { background: #388e3c; }
+.btn-success { background: #2E7D32; color: white; }
+.btn-success:hover:not(:disabled) { background: #1B5E20; }
 
 .btn-warning { background: var(--warning); color: white; }
 .btn-warning:hover:not(:disabled) { background: #e65100; }
@@ -596,8 +596,8 @@ td:first-child, th:first-child { text-align: center; width: 3rem; }
 /* ── Footer ── */
 .app-footer {
   background: var(--bg);
-  font-size: 0.72rem;
-  color: #aaa;
+  font-size: 0.75rem;
+  color: #767676;
   text-align: center;
   padding: 2rem 1rem 1rem;
   margin-top: auto;

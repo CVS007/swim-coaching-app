@@ -7,7 +7,7 @@
   "display": "standalone",
   "orientation": "portrait",
   "scope": "/",
-  "start_url": "/",
+  "start_url": "./",
   "lang": "en",
   "icons": [
     {"src": "download.png", "sizes": "225x225", "type": "image/png", "purpose": "any maskable"},

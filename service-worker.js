@@ -1,5 +1,5 @@
 const CACHE_NAME = 'swimtrack-v1';
-const PRECACHE_LIST = ['/', '/index.html', '/app.css', '/app.js', '/manifest.json', '/download.png'];
+const PRECACHE_LIST = ['./', './index.html', './app.css', './app.js', './manifest.json', './download.png'];
 
 const OFFLINE_FALLBACK = `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Offline - SwimTrack Pro</title><style>body{font-family:system-ui,sans-serif;display:flex;justify-content:center;align-items:center;height:100vh;margin:0;background:#f0f4f8;color:#333}div{text-align:center}h1{color:#0077be}p{color:#666}</style></head><body><div><h1>You're Offline</h1><p>Please check your internet connection and try again.</p></div></body></html>`;
 
