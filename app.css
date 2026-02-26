@@ -597,7 +597,7 @@ td:first-child, th:first-child { text-align: center; width: 3rem; }
 .app-footer {
   background: var(--bg);
   font-size: 0.75rem;
-  color: #767676;
+  color: #555555;
   text-align: center;
   padding: 2rem 1rem 1rem;
   margin-top: auto;
@@ -615,7 +615,7 @@ td:first-child, th:first-child { text-align: center; width: 3rem; }
 
 /* ── 480px ── */
 @media (min-width: 480px) {
-  .tab-nav button { font-size: 0.72rem; }
+  .tab-nav button { font-size: 0.75rem; }
   .tab-nav button .tab-icon { font-size: 1.5rem; }
 }
 
